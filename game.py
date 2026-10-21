@@ -20,16 +20,15 @@ class HashmapGame:
         # HashMap storing world grid: Key = (x, y) tuple, Value = entity type ("wall", "gold")
         self.game_map = {}
         
-        # UI Header
+        # UI Header (Fixed padding usage)
         self.info_label = tk.Label(
             root, 
             text="Use Arrow Keys or WASD to move!", 
             font=("Arial", 12, "bold"),
             bg="#0f172a", 
-            fg="#f8fafc",
-            padding=10
+            fg="#f8fafc"
         )
-        self.info_label.pack(fill=tk.X)
+        self.info_label.pack(fill=tk.X, padx=10, pady=10)
 
         # Tkinter Canvas View
         self.canvas = tk.Canvas(
@@ -38,7 +37,7 @@ class HashmapGame:
             height=GRID_HEIGHT * TILE_SIZE, 
             bg="#1e293b"
         )
-        self.canvas.pack()
+        self.canvas.pack(padx=10, pady=10)
 
         # Keyboard Controls
         self.root.bind("<Up>", lambda e: self.move(0, -1))
